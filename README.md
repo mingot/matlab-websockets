@@ -1,11 +1,17 @@
-<<<<<<< HEAD
-matlab-websocket
-================
 
-Accessing websockets from matlab
-=======
 matlab-websockets
 =================
 
-Bridge to implement Websockts in Matlab using Java-WebSocket
->>>>>>> 7b2f06e366787953c0bca9bb1927f94982fdb50b
+Simple implementation of websockets in matlab. It uses 
+
+
+
+Contribution
+------------
+
+This work is based in the `specific implementation` for ROS system by Brendan Andrade.
+At the same time, both of them rely on the websocket library for Java, `Java-WebSockets`.
+
+
+.. _`specific implementation`: https://github.com/BrendanAndrade/web-matlab-bridge
+.. _`Java-WebSockets`: https://github.com/TooTallNate/Java-WebSocket
