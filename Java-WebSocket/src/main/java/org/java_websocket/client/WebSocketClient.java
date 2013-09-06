@@ -193,13 +193,11 @@ public abstract class WebSocketClient extends WebSocketAdapter implements Runnab
 	 *            The Byte-Array of data to send to the WebSocket server.
 	 */
 	public void send( byte[] data ) throws NotYetConnectedException {
-			conn.send( data );
+		conn.send( data );
 	}
 
 	private void tryToConnect( InetSocketAddress remote ) throws IOException , InvalidHandshakeException {
-
-		channel.connect( remote );
-
+		boolean connected = channel.connect( remote );
 	}
 
 	// Runnable IMPLEMENTATION /////////////////////////////////////////////////
@@ -297,6 +295,7 @@ public abstract class WebSocketClient extends WebSocketAdapter implements Runnab
 		HandshakeImpl1Client handshake = new HandshakeImpl1Client();
 		handshake.setResourceDescriptor( path );
 		handshake.put( "Host", host );
+
 		if( headers != null ) {
 			for( Map.Entry<String,String> kv : headers.entrySet() ) {
 				handshake.put( kv.getKey(), kv.getValue() );

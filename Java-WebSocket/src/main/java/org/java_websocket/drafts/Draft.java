@@ -145,7 +145,8 @@ public abstract class Draft {
 		while ( it.hasNext() ) {
 			String fieldname = it.next();
 			String fieldvalue = handshakedata.getFieldValue( fieldname );
-			bui.append( fieldname );
+			// System.out.println(processFN(fieldname) + " : " + fieldvalue);
+			bui.append( fieldname);
 			bui.append( ": " );
 			bui.append( fieldvalue );
 			bui.append( "\r\n" );
@@ -161,6 +162,19 @@ public abstract class Draft {
 		bytebuffer.flip();
 		return Collections.singletonList( bytebuffer );
 	}
+
+	// private String processFN(String fieldname){
+		
+	// 	Map<String, String> map = new HashMap<String, String>();
+	// 	map.put("host", "Host");
+	// 	map.put("upgrade", "Upgrade");
+	// 	map.put("connection", "Connection");
+	// 	map.put("sec-websocket-version", "Sec-WebSocket-Version");
+	// 	map.put("sec-websocket-key", "Sec-WebSocket-Key");
+	// 	map.put("sec-websocket-protocol", "Sec-WebSocket-Protocol");
+
+	// 	return map.get(fieldname);
+	// }
 
 	public abstract ClientHandshakeBuilder postProcessHandshakeRequestAsClient( ClientHandshakeBuilder request ) throws InvalidHandshakeException;
 

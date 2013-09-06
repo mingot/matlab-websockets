@@ -13,6 +13,10 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+
+import java.util.Iterator;
+
+
 import org.java_websocket.drafts.Draft;
 import org.java_websocket.drafts.Draft.CloseHandshakeType;
 import org.java_websocket.drafts.Draft.HandshakeState;
@@ -596,6 +600,14 @@ public class WebSocketImpl implements WebSocket {
 
 		// Store the Handshake Request we are about to send
 		this.handshakerequest = draft.postProcessHandshakeRequestAsClient( handshakedata );
+
+		// // show request header
+		// Iterator<String> it = handshakedata.iterateHttpFields();
+		// while ( it.hasNext() ) {
+		// 	String fieldname = it.next();
+		// 	String fieldvalue = handshakedata.getFieldValue(fieldname);
+		// 	System.out.println(fieldname + " : " + fieldvalue);
+		// }
 
 		// Notify Listener
 		try {

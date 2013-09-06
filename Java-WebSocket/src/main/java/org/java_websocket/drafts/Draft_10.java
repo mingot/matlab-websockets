@@ -194,6 +194,7 @@ public class Draft_10 extends Draft {
 		byte[] random = new byte[ 16 ];
 		reuseableRandom.nextBytes( random );
 		request.put( "Sec-WebSocket-Key", Base64.encodeBytes( random ) );
+		request.put( "Sec-WebSocket-Protocol", "echo-protocol");
 
 		return request;
 	}
@@ -207,6 +208,7 @@ public class Draft_10 extends Draft {
 		if( seckey == null )
 			throw new InvalidHandshakeException( "missing Sec-WebSocket-Key" );
 		response.put( "Sec-WebSocket-Accept", generateFinalKey( seckey ) );
+
 		return response;
 	}
 
